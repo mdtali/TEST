@@ -1,0 +1,395 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2021.04.16 10:35:00 =~=~=~=~=~=~=~=~=~=~=~=
+ibrix_fm
+
+[ ibrix_fm ]
+Usage: ibrix_fm
+ -? : Display usage for this command.
+ -A : All registered Fusion Manager instances
+ -B : Backup the Fusion Manager configuration
+ -I : IP Address
+ -P : Upgrade mode
+ -R : Register Fusion Manager instance
+ -c : Configure Fusion Manager
+ -d : Device name of VIF
+ -h : comma separated names of registered Fusion Manager instances
+ -i : Information about Fusion Manager running on localhost
+ -l : List registered Fusion Manager instances
+ -m : Set the mode (nofmfailover/passive). Takes effect immediately.
+ -n : VIF Netmask
+ -u : Unregister uninstalled Fusion Manager instance
+ -v : Vif type to configure (cluster or user)
+ -x : Delete the User VIF configuration
+
+ibrix_fm: Usage Patterns =======================================
+
+ibrix_fm -R <fm name> -I <ip address>
+                : Register FM name and its ip/hostname with Active Fusion Manager
+ibrix_fm -c <VIF ip address>  -d <VIF Device> -n <VIF Netmask> -v <VIF type (cluster or user)> [-I <Local ip address>]
+                : Add vif information to the FM configuration
+                : -I local ip address or dns hostname
+                : -v specifies type: cluster or user
+                : use -I with -v cluster
+ibrix_fm -m nofmfailover | passive [-P] [-A | -h FMLIST]
+                : set mode on Fusion Manager instance running on localhost,
+                : or if -A or -h specified set mode on all registered Fusion Manager instances
+                : (or on FMLIST instances) except local node with active Fusion Manager.
+                : -P add 'in upgrade' modifier to nofmfailover mode
+ibrix_fm -u <fusionservername>
+                : Unregister uninstalled Fusion Manager
+ibrix_fm -i
+                : display mode information about Fusion Manager
+ibrix_fm -l
+                : list registered Fusion Managers
+ibrix_fm -B
+                : Backup Fusion Manager configuration
+ibrix_fm -?
+
+Usage information requested
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# ibrix_fm -l
+NAME       IP ADDRESS
+---------  ----------
+ftc5-14s7  10.5.14.7 
+ftc5-14s8  10.5.14.8 
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# ibrix_fm -l[KA
+
+[ ibrix_fm -A ]
+Usage: ibrix_fm
+ -? : Display usage for this command.
+ -A : All registered Fusion Manager instances
+ -B : Backup the Fusion Manager configuration
+ -I : IP Address
+ -P : Upgrade mode
+ -R : Register Fusion Manager instance
+ -c : Configure Fusion Manager
+ -d : Device name of VIF
+ -h : comma separated names of registered Fusion Manager instances
+ -i : Information about Fusion Manager running on localhost
+ -l : List registered Fusion Manager instances
+ -m : Set the mode (nofmfailover/passive). Takes effect immediately.
+ -n : VIF Netmask
+ -u : Unregister uninstalled Fusion Manager instance
+ -v : Vif type to configure (cluster or user)
+ -x : Delete the User VIF configuration
+
+ibrix_fm: Usage Patterns =======================================
+
+ibrix_fm -R <fm name> -I <ip address>
+                : Register FM name and its ip/hostname with Active Fusion Manager
+ibrix_fm -c <VIF ip address>  -d <VIF Device> -n <VIF Netmask> -v <VIF type (cluster or user)> [-I <Local ip address>]
+                : Add vif information to the FM configuration
+                : -I local ip address or dns hostname
+                : -v specifies type: cluster or user
+                : use -I with -v cluster
+ibrix_fm -m nofmfailover | passive [-P] [-A | -h FMLIST]
+                : set mode on Fusion Manager instance running on localhost,
+                : or if -A or -h specified set mode on all registered Fusion Manager instances
+                : (or on FMLIST instances) except local node with active Fusion Manager.
+                : -P add 'in upgrade' modifier to nofmfailover mode
+ibrix_fm -u <fusionservername>
+                : Unregister uninstalled Fusion Manager
+ibrix_fm -i
+                : display mode information about Fusion Manager
+ibrix_fm -l
+                : list registered Fusion Managers
+ibrix_fm -B
+                : Backup Fusion Manager configuration
+ibrix_fm -?
+
+COMMAND LINE: ibrix_fm -A  IS INVALID
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# ibrix_fm -A\I[K[K[KI
+
+[ ibrix_fm -I ]
+Usage: ibrix_fm
+ -? : Display usage for this command.
+ -A : All registered Fusion Manager instances
+ -B : Backup the Fusion Manager configuration
+ -I : IP Address
+ -P : Upgrade mode
+ -R : Register Fusion Manager instance
+ -c : Configure Fusion Manager
+ -d : Device name of VIF
+ -h : comma separated names of registered Fusion Manager instances
+ -i : Information about Fusion Manager running on localhost
+ -l : List registered Fusion Manager instances
+ -m : Set the mode (nofmfailover/passive). Takes effect immediately.
+ -n : VIF Netmask
+ -u : Unregister uninstalled Fusion Manager instance
+ -v : Vif type to configure (cluster or user)
+ -x : Delete the User VIF configuration
+
+ibrix_fm: Usage Patterns =======================================
+
+ibrix_fm -R <fm name> -I <ip address>
+                : Register FM name and its ip/hostname with Active Fusion Manager
+ibrix_fm -c <VIF ip address>  -d <VIF Device> -n <VIF Netmask> -v <VIF type (cluster or user)> [-I <Local ip address>]
+                : Add vif information to the FM configuration
+                : -I local ip address or dns hostname
+                : -v specifies type: cluster or user
+                : use -I with -v cluster
+ibrix_fm -m nofmfailover | passive [-P] [-A | -h FMLIST]
+                : set mode on Fusion Manager instance running on localhost,
+                : or if -A or -h specified set mode on all registered Fusion Manager instances
+                : (or on FMLIST instances) except local node with active Fusion Manager.
+                : -P add 'in upgrade' modifier to nofmfailover mode
+ibrix_fm -u <fusionservername>
+                : Unregister uninstalled Fusion Manager
+ibrix_fm -i
+                : display mode information about Fusion Manager
+ibrix_fm -l
+                : list registered Fusion Managers
+ibrix_fm -B
+                : Backup Fusion Manager configuration
+ibrix_fm -?
+
+COMMAND LINE: ibrix_fm -I  IS INVALID
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# ibrix_fm -I[Km
+
+[ ibrix_fm -m ]
+Usage: ibrix_fm
+ -? : Display usage for this command.
+ -A : All registered Fusion Manager instances
+ -B : Backup the Fusion Manager configuration
+ -I : IP Address
+ -P : Upgrade mode
+ -R : Register Fusion Manager instance
+ -c : Configure Fusion Manager
+ -d : Device name of VIF
+ -h : comma separated names of registered Fusion Manager instances
+ -i : Information about Fusion Manager running on localhost
+ -l : List registered Fusion Manager instances
+ -m : Set the mode (nofmfailover/passive). Takes effect immediately.
+ -n : VIF Netmask
+ -u : Unregister uninstalled Fusion Manager instance
+ -v : Vif type to configure (cluster or user)
+ -x : Delete the User VIF configuration
+
+ibrix_fm: Usage Patterns =======================================
+
+ibrix_fm -R <fm name> -I <ip address>
+                : Register FM name and its ip/hostname with Active Fusion Manager
+ibrix_fm -c <VIF ip address>  -d <VIF Device> -n <VIF Netmask> -v <VIF type (cluster or user)> [-I <Local ip address>]
+                : Add vif information to the FM configuration
+                : -I local ip address or dns hostname
+                : -v specifies type: cluster or user
+                : use -I with -v cluster
+ibrix_fm -m nofmfailover | passive [-P] [-A | -h FMLIST]
+                : set mode on Fusion Manager instance running on localhost,
+                : or if -A or -h specified set mode on all registered Fusion Manager instances
+                : (or on FMLIST instances) except local node with active Fusion Manager.
+                : -P add 'in upgrade' modifier to nofmfailover mode
+ibrix_fm -u <fusionservername>
+                : Unregister uninstalled Fusion Manager
+ibrix_fm -i
+                : display mode information about Fusion Manager
+ibrix_fm -l
+                : list registered Fusion Managers
+ibrix_fm -B
+                : Backup Fusion Manager configuration
+ibrix_fm -?
+
+COMMAND LINE: ibrix_fm -m  IS INVALID
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# ibrix_fm -m[Ki
+FusionServer: ftc5-14s7 (active)
+================================
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# ibrix_fm -i[K[K[K[K[Kversion -l
+  Fusion Manager version: 6.6.308
+  ===============================
+  Segment Servers
+  ===============
+  HOST_NAME  FILE_SYSTEM              IAD/IAS  IAD/FS   OS         KERNEL_VERSION                 ARCH
+  ---------  -----------------------  -------  -------  ---------  -----------------------------  ----
+  ftc5-14s7  6.6.308(StoreAll_6_6_1)  6.6.308  6.6.308  GNU/Linux  2.6.18-371.6.1.hpsp.el5.19787  x86_64
+  ftc5-14s8  6.6.308(StoreAll_6_6_1)  6.6.308  6.6.308  GNU/Linux  2.6.18-371.6.1.hpsp.el5.19787  x86_64
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# ibrix_nic -l
+HOST                           IFNAME   TYPE     STATE                   IP_ADDRESS   MAC_ADDRESS        BACKUP_HOST  BACKUP_IF  VLAN_TAG  LINKMON
+-----------------------------  -------  -------  ----------------------  -----------  -----------------  -----------  ---------  --------  -------
+ftc5-14s7                      bond0    Cluster  Up, LinkUp              10.5.14.7    d8:9d:67:f1:96:e0                                    No     
+ftc5-14s8                      bond0    Cluster  Up, LinkUp              10.5.14.8    d8:9d:67:f1:96:70                                    No     
+ftc5-14s7 [Active FM Nonedit]  bond0:0  Cluster  Up, LinkUp (Active FM)  10.5.14.140                                                       No     
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# hpsp_fmt -fr
+Since no category argument is specified, operation will be performed on server components...
+Based on the configuration, Flash recommendation may take 5 minutes.
+In progress...  |/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|     <<< Completed >>>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Device            Device ID            Active FW    Qualified    Proposed   Severity    Reboot Reqd. Device Information      Parent Device ID         
+                                       Version      FW Version   Action                 on Flash                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+BIOS              USE324686R           P70          P70          NONE       NONE        Yes          N/A                     N/A                      
+                                       (02/10/2014) (02/10/2014)                                                                                      
+ILO4              ILOUSE324686R        1.51         1.51         NONE       NONE        No           N/A                     N/A                      
+NIC               eth0                 1.38         1.38         NONE       NONE        Yes          331FLR                  N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+Power_Mgmt_Ctlr   N/A                  3.3          3.3          NONE       NONE        Yes          N/A                     N/A                      
+SERVER_HDD        KQH89TPR             HPDC         HPDC         NONE       NONE        Yes          PORT:1I BOX:2 BAY:1     Ctlr:001438025AA3070     
+SERVER_HDD        KQH888PR             HPDC         HPDC         NONE       NONE        Yes          PORT:1I BOX:2 BAY:2     Ctlr:001438025AA3070     
+Smart_Array_Ctlr  001438025AA3070      5.42         5.42         NONE       NONE        Yes          P420i                   Serv:USE324686R          
+Storage_Ctlr      5001438025A2D450     2.56         2.34         DOWNGRADE  MANDATORY   Yes          p1228                   Clus:03d8924c-0000-1000-8016-533655303134
+                                       (2016101801) (2015031201)                                                                                      
+Storage_Ctlr      50014380266A7708     2.56         2.34         DOWNGRADE  MANDATORY   Yes          p1228                   Clus:03d3bd28-0000-1000-8091-53374a303530
+                                       (2016101801) (2015031201)                                                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# hpsp [K_fmt -fr storage
+Based on the configuration, Flash recommendation may take 20 minutes.
+In progress...  |/-\|/-\|/-\|/-     <<< Completed >>>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Device            Device ID            Active FW    Qualified    Proposed   Severity    Reboot Reqd. Device Information      Parent Device ID         
+                                       Version      FW Version   Action                 on Flash                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Enclosure_HDD     KMHBM43F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 1  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMH0ZN2F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 2  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMH0YNXF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 3  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJ8PLF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 4  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJ8B3F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 5  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KRGX4Y4R             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 6  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMH0ZD1F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 7  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHWBMF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 8  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMHUWKWF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 9  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJAYS4F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 10 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHD9RF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 11 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHWWKF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 12 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMHA2EXF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 13 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJBTPLF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 14 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHVMPF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 15 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJEV2VF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 16 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJAUBF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 17 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMH0V42F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 18 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJ8PVF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 19 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJ8VSF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 20 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJ8ENF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 21 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGZUP3F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 22 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJBUX6F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 23 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHVB8F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 24 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJ8E2F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 1 Bay: 25 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHVHHF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 1  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGNZLKF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 2  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHD91F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 3  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHV7TF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 4  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJGH5RF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 5  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJH28HF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 6  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGNZJKF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 7  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJB18UF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 8  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGPVYPF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 9  Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHXL9F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 10 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGPW02F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 11 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJ8AZF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 12 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGNZLSF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 13 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJATSHF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 14 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJHV5EF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 15 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJATHMF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 16 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJAAYF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 17 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJA2HLF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 18 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGZWPRF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 19 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJEV7XF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 20 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJJA1PF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 21 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJH22PF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 22 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMJA2A3F             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 23 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGPUWZF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 24 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_HDD     KMGPUYDF             HPDC         HPDC         NONE       NONE        Yes **       Port: 1E Box: 2 Bay: 25 Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_IO_Mod  5001438028BB51FF     0150         0150         NONE       NONE        No           Encl:1,IOM Slot A       Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_IO_Mod  5001438028BB51FD     0150         0150         NONE       NONE        No           Encl:1,IOM Slot B       Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_IO_Mod  5001438028BB063F     0150         0150         NONE       NONE        No           Encl:2,IOM Slot A       Clus:03d8924c-0000-1000-8016-533655303134
+Enclosure_IO_Mod  5001438028BB063D     0150         0150         NONE       NONE        No           Encl:2,IOM Slot B       Clus:03d8924c-0000-1000-8016-533655303134
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+** Coordinated reboot is needed
+--reboot option (if supplied) while flashing such devices will be ignored
+
+
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# hpsp_fmt -fr storage[K[K[K[K[K[Kerver
+Based on the configuration, Flash recommendation may take 5 minutes.
+In progress...  |/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-     <<< Completed >>>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Device            Device ID            Active FW    Qualified    Proposed   Severity    Reboot Reqd. Device Information      Parent Device ID         
+                                       Version      FW Version   Action                 on Flash                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+BIOS              USE324686R           P70          P70          NONE       NONE        Yes          N/A                     N/A                      
+                                       (02/10/2014) (02/10/2014)                                                                                      
+ILO4              ILOUSE324686R        1.51         1.51         NONE       NONE        No           N/A                     N/A                      
+NIC               eth0                 1.38         1.38         NONE       NONE        Yes          331FLR                  N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+Power_Mgmt_Ctlr   N/A                  3.3          3.3          NONE       NONE        Yes          N/A                     N/A                      
+SERVER_HDD        KQH89TPR             HPDC         HPDC         NONE       NONE        Yes          PORT:1I BOX:2 BAY:1     Ctlr:001438025AA3070     
+SERVER_HDD        KQH888PR             HPDC         HPDC         NONE       NONE        Yes          PORT:1I BOX:2 BAY:2     Ctlr:001438025AA3070     
+Smart_Array_Ctlr  001438025AA3070      5.42         5.42         NONE       NONE        Yes          P420i                   Serv:USE324686R          
+Storage_Ctlr      5001438025A2D450     2.56         2.34         DOWNGRADE  MANDATORY   Yes          p1228                   Clus:03d8924c-0000-1000-8016-533655303134
+                                       (2016101801) (2015031201)                                                                                      
+Storage_Ctlr      50014380266A7708     2.56         2.34         DOWNGRADE  MANDATORY   Yes          p1228                   Clus:03d3bd28-0000-1000-8091-53374a303530
+                                       (2016101801) (2015031201)                                                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# hpd[Ksp_fmy -f -c Storage_Ctlr [K --force
+-bash: hpsp_fmy: command not found
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# hpsp_fmy -f -c Storage_Ctlr --force[C[C[C[C[C[C[1P[1@t
+You have provided force option which will rewrite or downgrade the firmware
+Do you want to proceed (Y/N)?y
+Flashing Storage_Ctlr: Based on the configuration, it may take 10 minutes.
+In progress...  |/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/     <<< Succeeded >>>
+
+----------------------------------------------------------------------------------------------------
+Device                        :Storage_Ctlr                                                         
+Status                        :Success (Reboot Pending)                                             
+Code                          :0x1005                                                               
+CONDITIONAL_SUCCESS           :Flash succeeded for HP SAS Storage Controller using                  
+                               Raptor234_Invader_2015031201_opt.bin. This process must now be       
+                               completed in an offline fashion.Please now flash the Storage         
+                               Controller in this server’s HA peer, disable HA on this couplet,     
+                               disconnect clients from this couplet, and then gracefully power down 
+                               both servers in the couplet. To complete the process, please boot one
+                               server of the couplet, allow it to boot to a prompt, and only then   
+                               boot the other server.Lastly, re-enable HA on the couplet, and the   
+                               couplet will be ready for client connections.                        
+Reboot Required               :Yes                                                                  
+Coordinated Reboot Required   :Yes                                                                  
+----------------------------------------------------------------------------------------------------
+
+
+
+SUMMARY:
+----------------------------------------------------------------------------------------------------
+Device            Description                   Reboot Flash Status            
+                                                Reqd.                          
+----------------------------------------------------------------------------------------------------
+Storage_Ctlr      HP SAS Storage Controller      Yes   Success (Reboot Pending)
+
+----------------------------------------------------------------------------------------------------
+
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# hpsp_fmt -f -c Storage_Ctlr --forcey[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Pt -fr server
+Based on the configuration, Flash recommendation may take 5 minutes.
+In progress...  |/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\     <<< Completed >>>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Device            Device ID            Active FW    Qualified    Proposed   Severity    Reboot Reqd. Device Information      Parent Device ID         
+                                       Version      FW Version   Action                 on Flash                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+BIOS              USE324686R           P70          P70          NONE       NONE        Yes          N/A                     N/A                      
+                                       (02/10/2014) (02/10/2014)                                                                                      
+ILO4              ILOUSE324686R        1.51         1.51         NONE       NONE        No           N/A                     N/A                      
+NIC               eth0                 1.38         1.38         NONE       NONE        Yes          331FLR                  N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+PCIeNIC           N/A                  4.9.311.25   4.9.311.25   NONE       NONE        Yes          NC552SFP                N/A                      
+Power_Mgmt_Ctlr   N/A                  3.3          3.3          NONE       NONE        Yes          N/A                     N/A                      
+SERVER_HDD        KQH89TPR             HPDC         HPDC         NONE       NONE        Yes          PORT:1I BOX:2 BAY:1     Ctlr:001438025AA3070     
+SERVER_HDD        KQH888PR             HPDC         HPDC         NONE       NONE        Yes          PORT:1I BOX:2 BAY:2     Ctlr:001438025AA3070     
+Smart_Array_Ctlr  001438025AA3070      5.42         5.42         NONE       NONE        Yes          P420i                   Serv:USE324686R          
+Storage_Ctlr      5001438025A2D450     2.56         2.34         DOWNGRADE  MANDATORY   Yes          p1228                   Clus:03d8924c-0000-1000-8016-533655303134
+                                       (2016101801) (2015031201)                                                                                      
+Storage_Ctlr      50014380266A7708     2.56         2.34         DOWNGRADE  MANDATORY   Yes          p1228                   Clus:03d3bd28-0000-1000-8091-53374a303530
+                                       (2016101801) (2015031201)                                                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+]0;root@ftc5-14s7:~[root@ftc5-14s7 ~]# hpsp_fmt -fr server[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+Broadcast message from root (Fri Apr 16 04:45:28 2021):
+
+The system is going down for system halt NOW!

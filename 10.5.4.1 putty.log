@@ -1,0 +1,332 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2021.04.16 13:53:20 =~=~=~=~=~=~=~=~=~=~=~=
+[K[root@ftc5-4s1 ~]# ibrix_nic -l
+HOST                          IFNAME   TYPE     STATE                   IP_ADDRESS  MAC_ADDRESS        BACKUP_HOST  BACKUP_IF  VLAN_TAG  LINKMON
+----------------------------  -------  -------  ----------------------  ----------  -----------------  -----------  ---------  --------  -------
+ftc5-4s1                      bond0    Cluster  Up, LinkUp              10.5.4.1    ac:16:2d:96:89:f6                                    No     
+ftc5-4s2                      bond0    Cluster  Up, LinkUp              10.5.4.2    ac:16:2d:96:b8:c2                                    No     
+ftc5-4s1 [Active FM Nonedit]  bond0:0  Cluster  Up, LinkUp (Active FM)  10.5.4.109                                                       No     
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# ibrix_nic -l[C[1P -l[1P -l[1P -lh -le -la -ll -lk -l[1P -lt -lh -l
+  Overall Health Checker Results - PASSED
+  =======================================
+  Host Summary Results
+  ====================
+  Host      Result  Type    State  Network   Last Update
+  --------  ------  ------  -----  --------  -----------
+  ftc5-4s1  PASSED  Server  Up     10.5.4.1  Tue Apr 13 15:46:40 UTC 2021
+  ftc5-4s2  PASSED  Server  Up     10.5.4.2  Tue Apr 13 15:46:29 UTC 2021
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# [K[root@ftc5-4s1 ~]# hpsp_fmt -fr[K[root@ftc5-4s1 ~]# hpsp_fmt -fr
+Since no category argument is specified, operation will be performed on server components...
+Based on the configuration, Flash recommendation may take 5 minutes.
+In progress...  |/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\     <<< Completed >>>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Device            Device ID            Active FW    Qualified    Proposed   Severity    Reboot Reqd. Device Information      Parent Device ID         
+                                       Version      FW Version   Action                 on Flash                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+BIOS              USE303TCMH           P70          P70          NONE       NONE        Yes          N/A                     N/A                      
+                                       (02/10/2014) (02/10/2014)                                                                                      
+ILO4              ILOUSE303TCMH        2.77         1.51         DOWNGRADE  MANDATORY   No           N/A                     N/A                      
+NIC               eth0                 1.38         1.38         NONE       NONE        Yes          331FLR                  N/A                      
+PCIeNIC           N/A                  3.29         3.29         NONE       NONE        No           NC365T                  N/A                      
+PCIeNIC           N/A                  3.29         3.29         NONE       NONE        No           NC365T                  N/A                      
+Power_Mgmt_Ctlr   N/A                  3.3          3.3          NONE       NONE        Yes          N/A                     N/A                      
+SERVER_HDD        PWHT7KGF             HPDA         HPDA         NONE       NONE        Yes          PORT:1I BOX:2 BAY:1     Ctlr:00143802111F830     
+SERVER_HDD        46C0A00XF4NC1615     HPD2         HPD2         NONE       NONE        Yes          PORT:1I BOX:2 BAY:2     Ctlr:00143802111F830     
+Smart_Array_Ctlr  00143802111F830      5.42         5.42         NONE       NONE        Yes          P420i                   Serv:USE303TCMH          
+Storage_Ctlr      5001438025A262D0     2.56         2.56         NONE       NONE        Yes          p1228                   Clus:034195b4-0000-1000-b000-53344a303136
+                                       (2016101801) (2016101801)                                                                                      
+Storage_Ctlr      5001438025A26250     2.56         2.56         NONE       NONE        Yes          p1228                   Clus:042955bf-0000-1000-b048-53344a303136
+                                       (2016101801) (2016101801)                                                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# ibrix-version -l
+-bash: ibrix-version: command not found
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# ibrix-version -l[1P[1@_
+  Fusion Manager version: 6.6.327
+  ===============================
+  Segment Servers
+  ===============
+  HOST_NAME  FILE_SYSTEM              IAD/IAS  IAD/FS   OS         KERNEL_VERSION                 ARCH
+  ---------  -----------------------  -------  -------  ---------  -----------------------------  ----
+  ftc5-4s1   6.6.322(StoreAll_6_6_4)  6.6.322  6.6.322  GNU/Linux  2.6.18-371.6.1.hpsp.el5.19787  x86_64
+  ftc5-4s2   6.6.322(StoreAll_6_6_4)  6.6.322  6.6.322  GNU/Linux  2.6.18-371.6.1.hpsp.el5.19787  x86_64
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# login as: login as: root
+root@10.5.4.1's password: 
+Last login: Tue Apr 13 15:45:09 2021 from 10.5.250.6
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/cciss/c0d0p2     49541168   7643652  39380972  17% /
+/dev/cciss/c0d0p6    166550728  80704400  77386044  52% /local
+/dev/cciss/c0d0p1      6192592    131568   5746460   3% /stage
+/dev/cciss/c0d0p3     49541168   7568032  39456592  17% /alt
+tmpfs                 24579248       136  24579112   1% /dev/shm
+ifs2                 2076019424 308032580 1779271264  15% /ifs2
+ifs1                 4152038848 584992684 3589615004  15% /ifs1
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# echo
+
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# groups
+root bin daemon sys adm disk wheel ibrix-admin
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# history
+    1  ibrix_nic -l
+    2  10.5.4.1    ac:16:2d:96:89:f6                                    No
+    3  ftc5-4s2                      bond0    Cluster  Up, LinkUp              10.5.4.2    ac:16:2d:96:b8:c2                                    No
+    4  ftc5-4s1 [Active FM Nonedit]  bond0:0  Cluster  Up, LinkUp (Active FM)  10.5.4.109                                                       No
+    5  [root@ftc5-4s1 ~]#
+    6  clear
+    7  hpsp_fmt -fr
+    8  hpsp_fmt -f -c ILO4
+    9  hpsp_fmt -f -c ILO4 --force
+   10  hpsp_fmt -fr
+   11  clear
+   12  ibrix_version -l
+   13  ibrix_health -l
+   14  ibrix_server -l
+   15  ibrix_nic -l
+   16  ibrix_fs -l
+   17  hpsp_srvid
+   18  hpsp_fmt -fr
+   19  hpsp_fmt -fr storage
+   20  clear
+   21  ibrix_fs -l
+   22  ibrix_vg -l
+   23  vgremove ivg1
+   24  vgremove ivg2
+   25  vgremove ivg3
+   26  ibrix_fs -l
+   27  cd /ifs1
+   28  ll
+   29  dd if=/dev/zero of=file01.fs bs=5900000 count=1024000000
+   30  ll
+   31  ibrix_fs -l
+   32  dd if=/dev/zero of=file02.fs bs=5900000 count=1024000000
+   33  ll
+   34  ibrix_fs -l
+   35  dd if=/dev/zero of=file03.fs bs=5900000 count=1024000000
+   36  ibrix_fs -l
+   37  ethtool eth0
+   38  ethtool eth1
+   39  ethtool eth2
+   40  ethtool eth3
+   41  ethtool eth4
+   42  ethtool eth5
+   43  ethtool eth6
+   44  ethtool eth7
+   45  ethtool eth8
+   46  ethtool eth0
+   47  ethtool eth1
+   48  ethtool eth2
+   49  ethtool eth3
+   50  ethtool eth4
+   51  ethtool eth5
+   52  ethtool eth6
+   53  ethtool eth7
+   54  ethtool eth8
+   55  ethtool eth9
+   56  ethtool eth10
+   57  ethtool eth11
+   58  ethtool eth12
+   59  ethtool eth0
+   60  ethtool eth1
+   61  ibrix_version -l
+   62  ibrix_nic -l
+   63  ibrix_health -l
+   64  ibrix_server -l
+   65  ibrix_version -l
+   66  ibrix_fs -l
+   67  hpsp_srvid
+   68  ibrix_nic -l
+   69  hpsp_fmt -fr server
+   70  hpsp_fmt -fr
+   71  hpsp_fmt -fr storage
+   72  ibrix_fs -l
+   73  cd /i
+   74  ibrix_fs -l
+   75  cd /ifs1/
+   76  ll
+   77  dd if=/dev/zero of=file07.fs bs=5900000 count=1024000000
+   78  ibrix_fs -l
+   79  ll
+   80  dd if=/dev/zero of=file08.fs bs=5900000 count=1024000000
+   81  ibrix_fs -l
+   82  ll
+   83  ibrix_fs -l
+   84  cd .ifs1
+   85  cd /ifs1
+   86  ll
+   87  cd
+   88  ibrix_fs -l
+   89  cd /ifs2
+   90  ll
+   91  dd if=/dev/zero of=file01.fs bs=5900000 count=1024000000
+   92  ibrix_fs -l
+   93  ll
+   94  ibrix_nic -l
+   95  dd if=/dev/zero of=file02.fs bs=5900000 count=1024000000
+   96  ll
+   97  ibrix_fs -l
+   98  ibrix_fs -l
+   99  ll
+  100  ibrix_fs -l
+  101  ibrix_nic -l
+  102  ibrix_fs -l
+  103  ibrix_fs -l
+  104  ibrix_fs -l
+  105  ibrix_fs -l
+  106  ibrix_fs -l
+  107  ibrix_fs -l
+  108  df
+  109  echo
+  110  groups
+  111  history
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# ls
+[00m[00manaconda-ks.cfg[00m   [00;34mhp[00m           [00minstall.log.syslog[00m  [00mks_packages[00m    [00mks_post.log[00m  [00mpost_install_log.txt[00m      [00;34mToU[00m
+[00;34mDropbox_GDPR_rpm[00m  [00minstall.log[00m  [00mks_env[00m              [00mks_partitions[00m  [00mks_pre.log[00m   [00;34mReadOnly_3digitrpm_Adobe[00m
+[m]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# [K[root@ftc5-4s1 ~]# [K[root@ftc5-4s1 ~]# ls -l
+[00mtotal 748
+-rw------- 1 root root   2473 Apr  9 12:34 [00manaconda-ks.cfg[00m
+drwxr-xr-x 2 root root   4096 Apr  9 20:56 [00;34mDropbox_GDPR_rpm[00m
+drwxr-xr-x 3 root root   4096 Apr  9 12:57 [00;34mhp[00m
+-rw-r--r-- 1 root root  33818 Apr  9 12:34 [00minstall.log[00m
+-rw-r--r-- 1 root root   4029 Apr  9 12:33 [00minstall.log.syslog[00m
+-rw-r--r-- 1 root root    119 Apr  9 12:34 [00mks_env[00m
+-rw-r--r-- 1 root root   1502 Apr  9 12:34 [00mks_packages[00m
+-rw-r--r-- 1 root root    402 Apr  9 12:34 [00mks_partitions[00m
+-rw-r--r-- 1 root root  76686 Apr  9 12:57 [00mks_post.log[00m
+-rw-r--r-- 1 root root  20379 Apr  9 12:34 [00mks_pre.log[00m
+-rw-r--r-- 1 root root 582910 Apr  9 12:56 [00mpost_install_log.txt[00m
+drwxr-xr-x 2 root root   4096 Apr  9 22:16 [00;34mReadOnly_3digitrpm_Adobe[00m
+drwxr-xr-x 2 root root   4096 Sep 26  2017 [00;34mToU[00m
+[m]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# ls -lh
+[00mtotal 748K
+-rw------- 1 root root 2.5K Apr  9 12:34 [00manaconda-ks.cfg[00m
+drwxr-xr-x 2 root root 4.0K Apr  9 20:56 [00;34mDropbox_GDPR_rpm[00m
+drwxr-xr-x 3 root root 4.0K Apr  9 12:57 [00;34mhp[00m
+-rw-r--r-- 1 root root  34K Apr  9 12:34 [00minstall.log[00m
+-rw-r--r-- 1 root root 4.0K Apr  9 12:33 [00minstall.log.syslog[00m
+-rw-r--r-- 1 root root  119 Apr  9 12:34 [00mks_env[00m
+-rw-r--r-- 1 root root 1.5K Apr  9 12:34 [00mks_packages[00m
+-rw-r--r-- 1 root root  402 Apr  9 12:34 [00mks_partitions[00m
+-rw-r--r-- 1 root root  75K Apr  9 12:57 [00mks_post.log[00m
+-rw-r--r-- 1 root root  20K Apr  9 12:34 [00mks_pre.log[00m
+-rw-r--r-- 1 root root 570K Apr  9 12:56 [00mpost_install_log.txt[00m
+drwxr-xr-x 2 root root 4.0K Apr  9 22:16 [00;34mReadOnly_3digitrpm_Adobe[00m
+drwxr-xr-x 2 root root 4.0K Sep 26  2017 [00;34mToU[00m
+[m]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# mkdir testdir
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# cd testdir/
+]0;root@ftc5-4s1:~/testdir[root@ftc5-4s1 testdir]# cd ..
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# mkdir testdir/dri2
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# cd testdir/
+]0;root@ftc5-4s1:~/testdir[root@ftc5-4s1 testdir]# cd dri2/
+]0;root@ftc5-4s1:~/testdir/dri2[root@ftc5-4s1 dri2]# cd..
+-bash: cd..: command not found
+]0;root@ftc5-4s1:~/testdir/dri2[root@ftc5-4s1 dri2]# cd ..
+]0;root@ftc5-4s1:~/testdir[root@ftc5-4s1 testdir]# cd ..
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# cat
+
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# df -h
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/cciss/c0d0p2      48G  7.3G   38G  17% /
+/dev/cciss/c0d0p6     159G   77G   74G  52% /local
+/dev/cciss/c0d0p1     6.0G  129M  5.5G   3% /stage
+/dev/cciss/c0d0p3      48G  7.3G   38G  17% /alt
+tmpfs                  24G  136K   24G   1% /dev/shm
+ifs2                  2.0T  294G  1.7T  15% /ifs2
+ifs1                  3.9T  558G  3.4T  15% /ifs1
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# df
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/cciss/c0d0p2     49541168   7645140  39379484  17% /
+/dev/cciss/c0d0p6    166550728  80710572  77379872  52% /local
+/dev/cciss/c0d0p1      6192592    131568   5746460   3% /stage
+/dev/cciss/c0d0p3     49541168   7568032  39456592  17% /alt
+tmpfs                 24579248       136  24579112   1% /dev/shm
+ifs2                 2076019424 308032580 1779271264  15% /ifs2
+ifs1                 4152038848 584992684 3589615004  15% /ifs1
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# diff
+diff: missing operand after `diff'
+diff: Try `diff --help' for more information.
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# find dri2
+find: dri2: No such file or directory
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# find
+.
+./.ibrix_cceditrc
+./.bashrc
+./.bash_logout
+./install.log
+./ks_packages
+./testdir
+./testdir/dri2
+./.monit.state
+./.cshrc
+./.x9000_config.lock
+./hp
+./hp/whatami.txt
+./hp/utils
+./hp/utils/setbootorder
+./hp/utils/node_ctl.sh
+./hp/utils/create_bonds.sh
+./hp/utils/dstat-0.7.2-1.noarch.rpm
+./hp/utils/DrNfs.pl
+./hp/utils/tftp-server-0.49-2.x86_64.rpm
+./hp/utils/TRANS.TBL
+./hp/utils/iozone-3-347.x86_64.rpm
+./hp/utils/atop-1.25-1.x86_64.rpm
+./hp/utils/netperf-2.4.5-1.x86_64.rpm
+./hp/utils/collectl-3.4.3-3.noarch.rpm
+./post_install_log.txt
+./.tcshrc
+./ks_pre.log
+./.ssh
+./.ssh/id_rsa
+./.ssh/authorized_keys
+./.ssh/id_rsa.pub
+./.ssh/known_hosts
+./.monit.id
+./install.log.syslog
+./ks_post.log
+./ToU
+./ToU/Red_Hat_EULA_091005.pdf
+./ToU/TRANS.TBL
+./ToU/ancillary_polyservExds.txt
+./ToU/TSG_EULA_International.pdf
+./ToU/ancillary.txt
+./ReadOnly_3digitrpm_Adobe
+./ReadOnly_3digitrpm_Adobe/rpm-hpPublicKey.pub
+./ReadOnly_3digitrpm_Adobe/IbrixFusionManager-6.6.327-1.x86_64.rpm
+./ReadOnly_3digitrpm_Adobe/md5sum.txt
+./ks_env
+./anaconda-ks.cfg
+./ks_partitions
+./Dropbox_GDPR_rpm
+./Dropbox_GDPR_rpm/6_6_323_md5sum_output.txt
+./Dropbox_GDPR_rpm/IbrixFusionManager-6.6.323-1.x86_64.rpm
+./.bash_history
+./.bash_profile
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# group
+-bash: group: command not found
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# group dri2
+-bash: group: command not found
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# passwd
+Changing password for user root.
+New UNIX password: 
+
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# 
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# ping 10.1[K5.4.1
+PING 10.5.4.1 (10.5.4.1) 56(84) bytes of data.
+64 bytes from 10.5.4.1: icmp_seq=1 ttl=64 time=0.043 ms
+64 bytes from 10.5.4.1: icmp_seq=2 ttl=64 time=0.037 ms
+64 bytes from 10.5.4.1: icmp_seq=3 ttl=64 time=0.046 ms
+64 bytes from 10.5.4.1: icmp_seq=4 ttl=64 time=0.044 ms
+64 bytes from 10.5.4.1: icmp_seq=5 ttl=64 time=0.039 ms
+64 bytes from 10.5.4.1: icmp_seq=6 ttl=64 time=0.049 ms
+64 bytes from 10.5.4.1: icmp_seq=7 ttl=64 time=0.037 ms
+
+64 bytes from 10.5.4.1: icmp_seq=8 ttl=64 time=0.046 ms
+64 bytes from 10.5.4.1: icmp_seq=9 ttl=64 time=0.036 ms
+64 bytes from 10.5.4.1: icmp_seq=10 ttl=64 time=0.042 ms
+64 bytes from 10.5.4.1: icmp_seq=11 ttl=64 time=0.040 ms
+64 bytes from 10.5.4.1: icmp_seq=12 ttl=64 time=0.033 ms
+
+--- 10.5.4.1 ping statistics ---
+12 packets transmitted, 12 received, 0% packet loss, time 11001ms
+rtt min/avg/max/mdev = 0.033/0.041/0.049/0.004 ms
+]0;root@ftc5-4s1:~[root@ftc5-4s1 ~]# 
